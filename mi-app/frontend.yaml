@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-frontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"  # <--- OLA 5 (Arranca después)
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: httpd:alpine # Usamos apache para diferenciar
+        ports:
+        - containerPort: 80

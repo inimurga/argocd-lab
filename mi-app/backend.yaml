@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-backend
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"  # <--- OLA 0 (Arranca primero)
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: nginx:alpine # Usamos alpine que es ligero
+        ports:
+        - containerPort: 80
