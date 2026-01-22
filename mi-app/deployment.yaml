@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mi-nginx
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: mi-nginx
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:inventada
+        image: nginx:1.29.4
         ports:
         - containerPort: 80
