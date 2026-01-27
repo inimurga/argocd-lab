@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mi-nginx
 spec:
-  replicas: 4
+  replicas: 0
   selector:
     matchLabels:
       app: mi-nginx
