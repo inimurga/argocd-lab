@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"  # <--- OLA 5 (Arranca después)
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: frontend
